@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Player</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 20px;
+            background: #e9f7f2;
+            /* Soft green background */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #34a4a9;
+            /* Vibrant border */
+        }
+
+        .btn-primary {
+            background-color: #34a4a9;
+            /* Matching vibrant button color */
+            border-color: #34a4a9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="mb-4 text-center" style="color: #34a4a9;">Add Player</h2>
+        <form method="POST" action="{{ url_for('add_player') }}" class="mb-3">
+            <input type="text" name="player_name" placeholder="Player Name" class=" form-control mb-2">
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
