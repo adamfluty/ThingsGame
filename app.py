@@ -59,8 +59,8 @@ def index():
     )
 
 
-@app.route("/answers")
-def manage():
+@app.route("/game")
+def game():
     players_ = [i for i in answers.values() if i["name"]]
     ordered_players = sorted(players_, key=lambda p: (-p["active"], -p["score"]))
     answers_ = [i for i in answers.values() if i["answer"] and i["name"]]
@@ -110,7 +110,7 @@ def clear():
     lock_answers = False
     global show_answers
     show_answers = False
-    return redirect(url_for("answers"))
+    return redirect(url_for("game"))
 
 
 @app.route("/toggle_lock")
@@ -120,7 +120,7 @@ def toggle_lock():
     global show_answers
     show_answers = lock_answers
 
-    return redirect(url_for("answers"))
+    return redirect(url_for("game"))
 
 
 @app.route("/next")
@@ -130,7 +130,7 @@ def next():
         [i for i in answers.values() if i["name"]], key=lambda p: p["turn"]
     )
     if not any([i["active"] for i in player_order]):
-        return redirect(url_for("answers"))
+        return redirect(url_for("game"))
     current_turn += 1
     if current_turn >= len(player_order):
         current_turn = 0
@@ -140,7 +140,7 @@ def next():
             current_turn = 0
     global player_turn
     player_turn = player_order[current_turn]["name"]
-    return redirect(url_for("answers"))
+    return redirect(url_for("game"))
 
 
 @app.route("/increase_score", methods=["POST"])
@@ -150,7 +150,7 @@ def increase_score():
         if player["name"] == player_name:
             player["score"] += 1
             break
-    return redirect(url_for("answers"))
+    return redirect(url_for("game"))
 
 
 @app.route("/decrease_score", methods=["POST"])
@@ -160,7 +160,7 @@ def decrease_score():
         if player["name"] == player_name:
             player["score"] -= 1
             break
-    return redirect(url_for("answers"))
+    return redirect(url_for("game"))
 
 
 @app.route("/toggle_active", methods=["POST"])
@@ -174,7 +174,7 @@ def toggle_active():
         for player in answers.values():
             if player["name"] == player_turn:
                 player["score"] += 1
-    return redirect(url_for("answers"))
+    return redirect(url_for("game"))
 
 
 @app.route("/toggle_answer", methods=["POST"])
@@ -188,7 +188,7 @@ def toggle_answer():
         for player in answers.values():
             if player["name"] == player_turn:
                 player["score"] += 1
-    return redirect(url_for("answers"))
+    return redirect(url_for("game"))
 
 
 @app.route("/total_answers_stream")
