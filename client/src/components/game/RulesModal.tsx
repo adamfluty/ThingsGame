@@ -34,10 +34,10 @@ export function RulesModal({ onClose }: RulesModalProps) {
           <div className="font-bold text-secondary mb-0.5">Scoring</div>
           <ul className="list-disc pl-5 space-y-0.5">
             <li>
-              Correct guess: <Badge variant="primary" className="bg-primary/20 border-primary/40">+1</Badge>
+              Correct guess: <Badge variant="primary" className="text-primary bg-primary/20 border-primary/40">+1</Badge>
             </li>
             <li>
-              Place two votes for best answer: <Badge variant="primary" className="bg-primary/20 border-primary/40">+1</Badge>
+              Vote for best answers: <Badge variant="primary" className="text-primary bg-primary/20 border-primary/40">+1</Badge>
             </li>
             <li>
               Best answer:
