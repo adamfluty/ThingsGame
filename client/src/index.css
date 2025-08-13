@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Use default root font size and prevent mobile text autosizing */
+html { font-size: 125%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+:root {
+  --fun-bg: radial-gradient(1200px 800px at -10% -10%, hsl(var(--p)/0.15), transparent 40%),
+             radial-gradient(800px 600px at 110% -20%, hsl(var(--s)/0.12), transparent 35%),
+             radial-gradient(900px 700px at 50% 110%, hsl(var(--a)/0.10), transparent 40%);
+}
+
+.font-display {
+  font-family: "Fredoka", ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* Ensure inputs are at least 16px to prevent mobile zoom-on-focus */
+input, textarea, select, button { font-size: 16px; }
+
+.fun-bg {
+  background-image: var(--fun-bg);
+  background-attachment: fixed;
+}
+
+/* Subtle card glass effect helper */
+.glass-card {
+  @apply bg-base-200/80 backdrop-blur border border-base-300 shadow-xl rounded-2xl;
+}
+
+.room-banner {
+  @apply badge badge-primary;
+}
+
+/* Global confetti animation used by winner overlay */
+@keyframes confettiFall {
+  0% { transform: translateY(-10%) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0.9; }
+}
+.confetti-piece {
+  position: absolute;
+  top: -12px;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  opacity: 0.95;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
