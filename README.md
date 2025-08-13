@@ -19,9 +19,7 @@ Things! Game is a lightweight real‑time party game for in‑person groups. Pla
   - Clear to reset for next round
   - Sorting toggle (Score vs Play Order) and Randomize Order
   - Light/Dark theme toggle
-- Admin screen (/admin):
-  - Live edit player names and play order
-  - Remove player button
+// Admin screen removed; host can inline edit names and play order on /game
 
 ### Install (Debian Bookworm)
 
@@ -58,9 +56,11 @@ Use the unified deploy script to build and update the systemd service:
 
 ### Routes
 
-- `/`       Player entry (no password)
-- `/game`   Host game screen
-- `/admin`  Admin tools
+- `/`       Home
+- `/join`   Player join
+- `/play`   Player game
+- `/host`   Host room
+- `/game`   Host game screen (requires a joined/created room)
 
 ### Environment
 
@@ -68,7 +68,7 @@ Use the unified deploy script to build and update the systemd service:
 
 ### Notes
 
-- Names lock on first submit; admins can live‑edit names in `/admin`.
+- Names lock on first submit; host can still edit names inline on `/game`.
 - “Lock & Show” switches to “Clear” once locked.
 - Next is disabled until locked; the server also ignores “next” before locking.
 
