@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="@logo.png" alt="ThingsGame Logo" width="200" />
+  <img src="logo.png" alt="ThingsGame Logo" width="200" />
 </p>
 
 ### Things! Game (Realtime Party Game)
