@@ -10,7 +10,17 @@ module.exports = {
   ],
   theme: { extend: {} },
   plugins: [require('daisyui')],
-  daisyui: { themes: ['light','dark'] }
+  daisyui: {
+    themes: [
+      {
+        light: {
+          "base-100": "oklch(98% 0.022 95.277)",
+          "base-200": "oklch(96% 0.059 95.617)",
+        },
+      },
+      'dark',
+    ],
+  }
 }
 
 
